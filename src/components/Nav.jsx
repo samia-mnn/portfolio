@@ -1,5 +1,6 @@
 import React from "react";
 import { COLORS } from "../constants/colors";
+import apuImg from "../assets/apu.png";
 
 export default function Nav({ activeSection }) {
   const links = ["Home", "Research", "CV"];
@@ -11,8 +12,8 @@ export default function Nav({ activeSection }) {
       background: `linear-gradient(to bottom, ${COLORS.cream}EE, ${COLORS.cream}00)`,
     }}>
       <div style={{ display: "flex", gap: "2.5rem", alignItems: "center" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-          <img src="./src/assets/apu.png" alt="apple" style={{ width: 50, height: "auto" }} />
+          <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+          <img src={apuImg} alt="apple" style={{ width: 50, height: "auto" }} />
           <span style={{  fontSize: "1.1rem", color: COLORS.moss, fontWeight: 700 }}>
             samia menon 
           </span>

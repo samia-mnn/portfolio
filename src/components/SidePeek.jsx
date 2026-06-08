@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
+import doughtyImg from "../assets/doughty.jpeg";
 
-export default function SidePeek({ side = "left", src = "./src/assets/doughty.jpeg", contentWidth = 1300, minReveal = 10, maxImageWidth = 420 }) {
+export default function SidePeek({ side = "left", src = doughtyImg, contentWidth = 1300, minReveal = 10, maxImageWidth = 420 }) {
   const [reveal, setReveal] = useState(minReveal);
 
   useEffect(() => {

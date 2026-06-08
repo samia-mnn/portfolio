@@ -1,7 +1,11 @@
+import lilyImg from "../assets/lily.png";
+import gladImg from "../assets/glad.png";
+import alstroImg from "../assets/alstro.png";
+
 export const FLOWER_ASSETS = {
-  daisy:      { src: "./src/assets/lily.png",      baseSize: 70 },
-  tulip:      { src: "./src/assets/glad.png",      baseSize: 70 },
-  wildflower: { src: "./src/assets/alstro.png", baseSize: 70 },
+  daisy:      { src: lilyImg,      baseSize: 70 },
+  tulip:      { src: gladImg,      baseSize: 70 },
+  wildflower: { src: alstroImg, baseSize: 70 },
 };
 
 export const FLOWER_CONFIGS = [

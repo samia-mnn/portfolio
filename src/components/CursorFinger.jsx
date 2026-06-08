@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
+import fingerImg from "../assets/finger.png";
 
-export default function CursorFinger({ src = "./src/assets/finger.png", size = 48 }) {
+export default function CursorFinger({ src = fingerImg, size = 48 }) {
   const ref = useRef({ x: 0, y: 0, raf: null });
   const elRef = useRef(null);
 

@@ -78,7 +78,7 @@ export default function MoreInfoModal({ open = false, onClose = () => {}, data =
             {data.images && data.images.length ? (
               <div style={{ display: "flex", gap: "0.6rem", marginTop: "0.8rem", flexWrap: "wrap" }}>
                 {data.images.map((img, i) => (
-                  <img key={i} src={`./src/assets/${img}`} alt={`img-${i}`} style={{ width: 120, height: "auto", borderRadius: 6, boxShadow: "0 6px 18px rgba(0,0,0,0.08)", flex: "0 0 auto" }} />
+                  <img key={i} src={img} alt={`img-${i}`} style={{ width: 120, height: "auto", borderRadius: 6, boxShadow: "0 6px 18px rgba(0,0,0,0.08)", flex: "0 0 auto" }} />
                 ))}
               </div>
             ) : null}

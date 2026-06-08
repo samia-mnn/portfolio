@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import foxImg from "../assets/fox-removebg-preview.png";
 
 // Revealing bird that appears at the left or right edge and rotates slightly inward.
 // The `trigger` prop is expected to increment. We use its parity to alternate sides:
@@ -71,7 +72,7 @@ export default function FlyingBird({ trigger }) {
 
   return (
     <div style={{ ...containerStyle, transform }} aria-hidden>
-      <span style={{ display: "inline-block" }}><img style={{ width: "5em", height: "auto" }} src="./src/assets/fox-removebg-preview.png" alt="Flying Bird" /></span>
+      <span style={{ display: "inline-block" }}><img style={{ width: "5em", height: "auto" }} src={foxImg} alt="Flying Bird" /></span>
     </div>
   );
 }

@@ -1,6 +1,17 @@
 import React from "react";
+import bluebirdImg from "../assets/bluebird.webp";
+import cardImg from "../assets/card.webp";
+import warblerImg from "../assets/warbler.webp";
 
 export default function PersistentBird({ visible = false, side = "right", top = "15vh", emoji = "🐦" }) {
+  // If `emoji` is a known file name, map to imported asset; otherwise, assume it might be an emoji character
+  const IMAGE_MAP = {
+    "bluebird.webp": bluebirdImg,
+    "card.webp": cardImg,
+    "warbler.webp": warblerImg,
+  };
+  const isImg = typeof emoji === "string" && IMAGE_MAP[emoji];
+  const birdSrc = isImg ? IMAGE_MAP[emoji] : null;
   const baseStyle = {
     position: "fixed",
     top,
@@ -24,7 +35,13 @@ export default function PersistentBird({ visible = false, side = "right", top = 
 
   return (
     <div style={{ ...containerStyle, transform }} aria-hidden>
-            <span style={{ display: "inline-block" }}><img style={{ width: "3.5em", height: "auto" }} src={`./src/assets/${emoji}`} alt="Flying Bird" /></span>
+      <span style={{ display: "inline-block" }}>
+        {birdSrc ? (
+          <img style={{ width: "3.5em", height: "auto" }} src={birdSrc} alt="Flying Bird" />
+        ) : (
+          <span style={{ fontSize: "2.2rem" }}>{emoji}</span>
+        )}
+      </span>
     </div>
   );
 }

@@ -1,3 +1,7 @@
+import carbonVideo from "../assets/carbon.mp4";
+import otterImg from "../assets/otter.webp";
+import usersImg from "../assets/users.webp";
+
 export const PROJECTS = [
   {
     emoji: "🦦",
@@ -35,11 +39,11 @@ export const PROJECTS = [
     links: [{ label: "Press", href: "https://www.tc.columbia.edu/articles/2024/may/exploring-biodiversity-through-virtual-reality-/" },
             { label: "Learn more", href: "#", modal: true }],
     moreInfo: {
-      videoSrc: "./src/assets/carbon.mp4",
+      videoSrc: carbonVideo,
       title: "🐋 Carbon Catchers AR:",
       subtitle: "An interactive AR experience to learn about marine ecosystems' roles in sequestering carbon",
       longText: "Carbon Catchers is an augmented reality experience that launched in the American Museum of Natural History’s Hall of Ocean Life in April 2024. The goal of the exhibit is to spread understanding of various marine ecosystems and their involvement in the carbon cycle.\nI served as a member of the 3-person leadership team to design and develop the experience & application. This included the initial brainstorming process, content refinement, AR development, the creation of the final webapp, and facilitation on release day. We collaborated with an amazing team of designers, animators, scientists, and developers, many based at the AMNH and Columbia University’s Teacher’s College. There were over 2000 unique users of our application on the day of release. Here is a short demo:",
-      images: ["otter.webp", "users.webp"],
+      images: [otterImg, usersImg],
       extra: "Implemented in 8th Wall, React, and a-frame. Created with the Science Visualization Group at the AMNH and the Brown Institute for Media Innovation."
     }
   },

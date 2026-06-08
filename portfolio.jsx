@@ -1,4 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
+import thinversImg from "./src/assets/thinvers.png";
+import magImg from "./src/assets/mag.png";
+import viewImg from "./src/assets/view.png";
+import resumePdf from "./src/assets/resume.pdf";
+import classImg from "./src/assets/class.png";
 import { COLORS } from "./src/constants/colors";
 import { PROJECTS } from "./src/data/projects";
 import FlowerSidebar from "./src/components/FlowerSidebar";
@@ -119,8 +124,8 @@ export default function Portfolio() {
         <section style={{ minHeight: "85vh", display: "flex", flexDirection: "column", justifyContent: "center", paddingTop: "2rem" }}>
           <Reveal>
             <div style={{ display: "flex", alignItems: "center", gap: "2rem", flexWrap: "wrap" }}>
-              <div style={{ position: "relative", width: "12em", flexShrink: 0 }}>
-                <img src="./src/assets/thinvers.png" alt="Samia Menon" style={{ width: "12em", height: "auto", display: "block", borderRadius: 8 , zIndex: 1}} />
+                <div style={{ position: "relative", width: "12em", flexShrink: 0 }}>
+                <img src={thinversImg} alt="Samia Menon" style={{ width: "12em", height: "auto", display: "block", borderRadius: 8 , zIndex: 1}} />
               </div>
 
               <div style={{ flex: 1, minWidth: 280 }}>
@@ -163,9 +168,9 @@ export default function Portfolio() {
           </Reveal>
         </section>
 
-        <div style={{ display: "flex", alignItems: "center", gap: "1rem", margin: "1rem 0 3rem" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "1rem", margin: "1rem 0 3rem" }}>
           <div style={{ flex: 1, height: "1px", background: `linear-gradient(to right, transparent, ${COLORS.sage}40)` }} />
-          <img src="./src/assets/mag.png" alt="sep" style={{ width: 100, height: "auto", opacity: 0.95 }} />
+          <img src={magImg} alt="sep" style={{ width: 100, height: "auto", opacity: 0.95 }} />
           <div style={{ flex: 1, height: "1px", background: `linear-gradient(to left, transparent, ${COLORS.sage}40)` }} />
         </div>
 
@@ -186,7 +191,7 @@ export default function Portfolio() {
               {i === 0 ? (
                 <div style={{ position: "relative" }}>
                   <img
-                    src="./src/assets/view.png"
+                    src={viewImg}
                     alt="view"
                     style={{
                       position: "absolute",
@@ -211,12 +216,12 @@ export default function Portfolio() {
 
         </section>
 
-  <PdfEmbed src="./src/assets/resume.pdf" height={520} />
+  <PdfEmbed src={resumePdf} height={520} />
 
   <footer style={{ marginTop: "2rem", paddingTop: "2rem", borderTop: `1px solid ${COLORS.sage}30`, textAlign: "center" }}>
           <Reveal>
             <p style={{ fontSize: "0.5rem", color: "#aaa" }}>
-              <img src="./src/assets/class.png" alt="class" style={{ width: 160, height: "auto", opacity: 0.95 }} />
+              <img src={classImg} alt="class" style={{ width: 160, height: "auto", opacity: 0.95 }} />
                <br></br>Image credits:  Apple (Illustrated Dictionary of Gardening – A Practical and Scientific Encyclopaedia of Horticulture, edited by George Nicholson - 1885), Birds (Birds of America, John James Audubon - 1838), Footer (San Francisco Chronicle on Rose O'Halloran - 1894), Woman with Binoculars (Advertisment for Samuel Levy Watches, Clocks, ETC, Suffolk, VA), Background (Lake of the Mountains, Thomas Doughty - 1826 - Currently displayed at the de Young Museum, San Francisco)
             </p>
           </Reveal>

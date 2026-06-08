@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import balloonImg from "../assets/balloon.png";
 
 // HotAirBalloon: periodically appears at a random horizontal position and
 // animates upward across the viewport, then disappears. Uses a simple CSS
@@ -95,7 +96,7 @@ export default function HotAirBalloon({ minInterval = 6000, maxInterval = 14000 
 
   return (
     <div style={containerStyle} aria-hidden>
-      <img src="./src/assets/balloon.png" alt="hot air balloon" style={imgStyle} />
+      <img src={balloonImg} alt="hot air balloon" style={imgStyle} />
     </div>
   );
 }
