@@ -153,7 +153,7 @@ export default function Portfolio() {
                 
                 <p style={{ fontSize: "0.7rem", color: "#888", lineHeight: 1.7 }}>
                   Previously : SWE at <strong>Squarespace</strong> · <a href="https://www.cs.columbia.edu/~chilton/" style={{ color: COLORS.moss, textDecoration: "none", fontWeight: 600 }}>Computational Design Lab at Columbia</a> under Prof. Lydia Chilton<br />
-                  <em>Also into:</em> ecology · <a href="https://samia-sketchbook.vercel.app" style={{ color: COLORS.terracotta, textDecoration: "none" }}>illustration</a> · archaeology · data visualization 🌻
+                  <em>I also enjoy:</em> ecology · <a href="https://samia-sketchbook.vercel.app" style={{ color: COLORS.terracotta, textDecoration: "none" }}>illustration</a> · archaeology · data visualization 
                 </p>
               </div>
             </div>
@@ -178,7 +178,7 @@ export default function Portfolio() {
           <Reveal>
             <div style={{ display: "flex", alignItems: "center", gap: "1rem", flexWrap: "wrap", marginBottom: "0.4rem" }}>
               <h2 style={{ fontSize: "1.6rem", fontWeight: 600, color: COLORS.ink, margin: 0 }}>
-                selected projects 📌
+                selected projects 
               </h2>
             </div>
             <p style={{ fontSize: "0.88rem", color: "#999", marginBottom: "2rem", fontStyle: "italic" }}>
