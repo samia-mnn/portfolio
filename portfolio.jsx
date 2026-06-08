@@ -182,7 +182,6 @@ export default function Portfolio() {
               </h2>
             </div>
             <p style={{ fontSize: "0.88rem", color: "#999", marginBottom: "2rem", fontStyle: "italic" }}>
-              Hover over each project to explore
             </p>
           </Reveal>
 
