@@ -1,0 +1,16 @@
+export const COLORS = {
+  cream: "#FAF7F2",
+  sage: "#8BAF8B",
+  dustyRose: "#D4A5A5",
+  terracotta: "#C4856A",
+  moss: "#5C7A4E",
+  darkMoss: "#3D5234",
+  ink: "#2A2A24",
+  warmWhite: "#FDFAF5",
+  lightSage: "#E8F0E5",
+  petal1: "#E8B4A0",
+  petal2: "#D4C5E2",
+  petal3: "#B5D4C5",
+  petal4: "#F5D6B0",
+  gold: "#C9A84C",
+};
