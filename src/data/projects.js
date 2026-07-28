@@ -9,6 +9,7 @@ import carbonCatchersImg from "../assets/carbon catchers.png";
 import schemexImg from "../assets/schemex.png"
 import reelframerImg from "../assets/reelframer.png"
 
+
 export const PROJECTS = [
   {
     emoji: "🦦",
