@@ -1,6 +1,13 @@
 import carbonVideo from "../assets/carbon.mp4";
 import otterImg from "../assets/otter.webp";
 import usersImg from "../assets/users.webp";
+import dialogueImg from "../assets/proj safe.gif";
+import healthcareImg from "../assets/healthcare.png";
+import moodsmithImg from "../assets/moodsmith.png";
+import viralityImg from "../assets/virality.png";
+import carbonCatchersImg from "../assets/carbon catchers.png";
+import schemexImg from "../assets/schemex.png"
+import reelframerImg from "../assets/reelframer.png"
 
 export const PROJECTS = [
   {
@@ -9,6 +16,8 @@ export const PROJECTS = [
     authors: "Samia Menon",
     venue: "SCCS-NY 2025 🏆 Best Speed Talk: Emerging Technologies",
     links: [],
+    image: dialogueImg,
+    imageAlt: "Dialogue project preview",
   },
   {
     emoji: "🧠",
@@ -16,6 +25,8 @@ export const PROJECTS = [
     authors: "Sitong Wang, Samia Menon, Ding Li, Xiaojuan Ma, Rich Zemel, Lydia Chilton",
     venue: "Under submission to UIST 2026",
     links: [{ label: "Paper", href: "https://arxiv.org/pdf/2504.11795" }, { label: "Video", href: "https://youtu.be/HABWaCx7kwE" }],
+    image: schemexImg,
+    imageAlt: "Schemex project preview",
   },
   {
     emoji: "🚌",
@@ -23,6 +34,8 @@ export const PROJECTS = [
     authors: "Sinan L Aktay, Ozan A Aktay, Samia Menon, Shuo Jim Huang, Rozalina G McCoy",
     venue: "JAMIA 2025",
     links: [{ label: "Paper", href: "https://academic.oup.com/jamia/advance-article-abstract/doi/10.1093/jamia/ocaf161/8270631" }],
+    image: healthcareImg,
+    imageAlt: "Healthcare transit project preview",
   },
   {
     emoji: "🎭",
@@ -30,14 +43,18 @@ export const PROJECTS = [
     authors: "Samia Menon, Sitong Wang, Lydia Chilton",
     venue: "ICCC 2024",
     links: [{ label: "Paper", href: "https://arxiv.org/pdf/2403.12356" }, { label: "Presentation", href: "https://youtu.be/Pgsgcx57tG4" }],
+    image: moodsmithImg,
+    imageAlt: "MoodSmith project preview",
   },
   {
     emoji: "🐋",
     title: "Carbon Catchers AR",
-    authors: "With the Science Visualization Group at American Museum of Natural History + Brown Institute",
+    authors: "Served as Technologist / Experience Lead: in collaboration with the Science Visualization Group at American Museum of Natural History + Brown Institute",
     venue: "EarthFest 2024",
     links: [{ label: "Press", href: "https://www.tc.columbia.edu/articles/2024/may/exploring-biodiversity-through-virtual-reality-/" },
             { label: "Learn more", href: "#", modal: true }],
+    image: carbonCatchersImg,
+    imageAlt: "Carbon Catchers AR preview",
     moreInfo: {
       videoSrc: carbonVideo,
       title: "🐋 Carbon Catchers AR:",
@@ -53,6 +70,8 @@ export const PROJECTS = [
     authors: "Sitong Wang, Samia Menon, Tao Long, Keren Henderson, Dingzeyu Li, Kevin Crowston, Mark Hansen, Jeffrey Nickerson, Lydia Chilton",
     venue: "CHI 2024",
     links: [{ label: "Paper", href: "https://arxiv.org/pdf/2304.09653.pdf" }, { label: "Video", href: "https://youtu.be/OvCwQO5x2WY" }],
+    image: reelframerImg,
+    imageAlt: "ReelFramer project preview", 
   },
   {
     emoji: "📱",
@@ -60,5 +79,7 @@ export const PROJECTS = [
     authors: "Samia Menon and Sahil Patel",
     venue: "Algorithmic Amplification and Society Symposium 2023",
     links: [{ label: "Website", href: "https://virality.brown.columbia.edu/" }, { label: "Presentation", href: "https://youtu.be/-cp7o6Ofk34" }],
+    image: viralityImg,
+    imageAlt: "Virality visualization preview",
   },
 ];

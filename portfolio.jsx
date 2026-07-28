@@ -102,6 +102,39 @@ export default function Portfolio() {
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: ${COLORS.cream}; }
         ::-webkit-scrollbar-thumb { background: ${COLORS.sage}; border-radius: 3px; }
+        @media (max-width: 700px) {
+          .hero-row {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.25rem;
+          }
+          .hero-photo-stack {
+            width: 100%;
+            max-width: 16rem;
+            align-items: center;
+          }
+          .hero-photo-wrap {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+          }
+          .hero-photo-wrap img {
+            width: min(70vw, 15rem);
+            max-width: 15rem;
+          }
+          .hero-text {
+            min-width: 0;
+            width: 100%;
+            text-align: center;
+          }
+          .hero-text > div:first-child {
+            justify-content: center;
+          }
+          .hero-greeting {
+            margin-bottom: 0.75rem;
+          }
+        }
       `}</style>
 
     {/* #<FloatingPetals /> */}
@@ -122,15 +155,17 @@ export default function Portfolio() {
 
         <section style={{ minHeight: "85vh", display: "flex", flexDirection: "column", justifyContent: "center", paddingTop: "2rem" }}>
           <Reveal>
-            <div style={{ display: "flex", alignItems: "center", gap: "2rem", flexWrap: "wrap" }}>
-                <div style={{ position: "relative", width: "12em", flexShrink: 0 }}>
-                <img src={thinversImg} alt="Samia Menon" style={{ width: "12em", height: "auto", display: "block", borderRadius: 8 , zIndex: 1}} />
+            <div className="hero-row" style={{ display: "flex", alignItems: "center", gap: "2rem", flexWrap: "wrap" }}>
+                <div className="hero-photo-stack" style={{ position: "relative", width: "12em", flexShrink: 0, display: "flex", flexDirection: "column", alignItems: "center" }}>
+                  <p className="hero-greeting" style={{ fontSize: "0.9rem", letterSpacing: "0.12em", color: COLORS.sage, marginBottom: "0.9rem", textAlign: "center", width: "100%" }}>
+                    <Reveal delay={300}>hello! </Reveal>
+                  </p>
+                  <div className="hero-photo-wrap" style={{ position: "relative", width: "12em" }}>
+                    <img src={thinversImg} alt="Samia Menon" style={{ width: "12em", height: "auto", display: "block", borderRadius: 8, zIndex: 1 }} />
+                  </div>
               </div>
 
-              <div style={{ flex: 1, minWidth: 280 }}>
-                <p style={{ fontSize: "0.9rem", letterSpacing: "0.12em", color: COLORS.sage, marginBottom: "0.75rem"}}>
-                  <Reveal delay={300}>hello! </Reveal>
-                </p>
+              <div className="hero-text" style={{ flex: 1, minWidth: 280 }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "0.6rem", marginBottom: "1.5rem" }}>
                   <h1 style={{  fontSize: "clamp(1.1rem, 5vw, 1.6rem)", fontWeight: 700, lineHeight: 1.15, margin: 0, color: COLORS.ink }}>
                     I'm <span style={{ color: COLORS.moss, display: "inline-block"}}>Samia - </span>
@@ -141,6 +176,7 @@ export default function Portfolio() {
                 </p>
                 <p style={{ fontSize: "0.7rem", lineHeight: 1.8, color: "#666", marginBottom: "1.5rem" }}>
                   My current research draws on HCI, ML, and computational social science to investigate how AI-mediated environments shape the information we consume and create.
+                  Drawing on these findings, I aim to build technologies that enable & support meaningful human expression under these new paradigms.
                 </p>
                  {/* <p style={{ fontSize: "0.7rem", lineHeight: 1.8, color: "#666", marginBottom: "1.5rem" }}> */}
                   {/* <p><strong>Let's chat!</strong> Right now, I'm really interested in the following questions:</p>
@@ -155,8 +191,8 @@ export default function Portfolio() {
                 </p>
                 
                 <p style={{ fontSize: "0.7rem", color: "#888", lineHeight: 1.7 }}>
-                  Previously I was SWE at <strong>Squarespace</strong> and worked in the <a href="https://www.cs.columbia.edu/~chilton/" style={{ color: COLORS.moss, textDecoration: "none", fontWeight: 600 }}>Computational Design Lab at Columbia</a> under Prof. Lydia Chilton.<br />
-                  <em>I also enjoy </em> ecology, <a href="https://samia-sketchbook.vercel.app" style={{ color: COLORS.terracotta, textDecoration: "none" }}>illustration</a>, archaeology  & data visualization !
+                  Previously I was SWE at <strong>Squarespace</strong> and worked in the <a href="https://www.cs.columbia.edu/~chilton/" style={{ color: COLORS.moss, textDecoration: "none", fontWeight: 600 }}>Computational Design Lab at Columbia</a> under Prof. Lydia Chilton.
+                  I also enjoy ecology, <a href="https://samia-sketchbook.vercel.app" style={{ color: COLORS.terracotta, textDecoration: "none" }}>illustration</a>, archaeology  & data visualization !
                 </p>
               </div>
             </div>

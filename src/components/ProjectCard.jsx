@@ -2,28 +2,51 @@ import React, { useState } from "react";
 import { COLORS } from "../constants/colors";
 import MoreInfoModal from "./MoreInfoModal";
 
-export default function ProjectCard({ emoji, title, authors, venue, links, description, moreInfo }) {
+export default function ProjectCard({ emoji, title, authors, venue, links, description, moreInfo, image, imageAlt }) {
   const [hovered, setHovered] = useState(false);
   const [moreOpen, setMoreOpen] = useState(false);
   const [moreData, setMoreData] = useState(null);
+
   return (
     <div
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
-        padding: "1.5rem 1.75rem",
+        padding: 0,
         background: COLORS.warmWhite,
         border: `1.5px solid  #E8E2DA`,
         borderRadius: 12,
         marginBottom: "1rem",
+        overflow: "hidden",
         transition: "all 0.3s ease",
         // transform: hovered ? "translateX(6px)" : "none",
         cursor: "default",
       }}
     >
-      <div style={{ display: "flex", alignItems: "flex-start", gap: "0.75rem" }}>
-        <span style={{ fontSize: "1.4rem", flexShrink: 0 }}>{emoji}</span>
-        <div style={{ flex: 1 }}>
+      <div style={{ display: "flex", alignItems: "stretch" }}>
+        <div
+          style={{
+            flex: "0 0 clamp(72px, 15%, 104px)",
+            width: "clamp(72px, 15%, 104px)",
+            maxWidth: 104,
+            aspectRatio: "4 / 3",
+            overflow: "hidden",
+            border: "none",
+            background: `${COLORS.cream}80`,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            boxShadow: "none",
+            margin: 0,
+          }}
+        >
+          {image ? (
+            <img src={image} alt={imageAlt || title} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+          ) : (
+            <span style={{ fontSize: "1.3rem" }}>{emoji}</span>
+          )}
+        </div>
+        <div style={{ flex: 1, minWidth: 0, padding: "1rem 1.1rem 1rem 0.9rem" }}>
           <p style={{ margin: 0,  fontSize: "1rem", fontWeight: 600, color: COLORS.ink, lineHeight: 1.4 }}>
             {title}
           </p>
