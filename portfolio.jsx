@@ -105,15 +105,14 @@ export default function Portfolio() {
       `}</style>
 
     {/* #<FloatingPetals /> */}
-  <CursorSparkles />
   <CursorFinger />
       {/* <FlowerSidebar scrollProgress={scrollProgress} side="left" />
       <FlowerSidebar scrollProgress={scrollProgress} side="right" /> */}
-    {isWide ? <HotAirBalloon /> : null}
+    {/* {isWide ? <HotAirBalloon /> : null} */}
   {/* Persistent birds for each milestone */}
-  {isWide ? <PersistentBird visible={birdTopRight} side="right" top="8vh" emoji="card.webp" /> : null}
+  {/* {isWide ? <PersistentBird visible={birdTopRight} side="right" top="8vh" emoji="card.webp" /> : null}
   {isWide ? <PersistentBird visible={birdMiddleLeft} side="left" top="45vh" emoji="bluebird.webp" /> : null}
-  {isWide ? <PersistentBird visible={birdBottomRight} side="right" top="70vh" emoji="warbler.webp" /> : null}
+  {isWide ? <PersistentBird visible={birdBottomRight} side="right" top="70vh" emoji="warbler.webp" /> : null} */}
   {/* <FlyingBird trigger={birdTrigger} /> */}
       <Nav activeSection={activeSection} />
 
@@ -141,31 +140,35 @@ export default function Portfolio() {
                   A first-year PhD student in Computer Science (HCI) at <strong style={{ color: COLORS.ink }}>UC Berkeley</strong>, co-advised by <a href="https://people.eecs.berkeley.edu/~bjoern/" style={{ color: COLORS.moss, textDecoration: "none", borderBottom: `1px dotted ${COLORS.moss}` }}>Bjoern Hartmann</a> and <a href="https://people.ischool.berkeley.edu/~hearst/" style={{ color: COLORS.moss, textDecoration: "none", borderBottom: `1px dotted ${COLORS.moss}` }}>Marti Hearst</a>.
                 </p>
                 <p style={{ fontSize: "0.7rem", lineHeight: 1.8, color: "#666", marginBottom: "1.5rem" }}>
-                  My current research leverages techniques in computer vision and machine learning to investigate how AI-mediated environments shape the information we consume and create — from algorithmic media, to news feeds, to art.
-                  Along with computational approaches, I believe that any innovation must be grounded in qualitative data that represents human perspectives and needs.
+                  My current research draws on HCI, ML, and computational social science to investigate how AI-mediated environments shape the information we consume and create.
                 </p>
-                 <p style={{ fontSize: "0.7rem", lineHeight: 1.8, color: "#666", marginBottom: "1.5rem" }}>
-                   Drawing on this work, I aim to build systems that enhance human understanding, expression, and connection within these new paradigms.
-                </p>
+                 {/* <p style={{ fontSize: "0.7rem", lineHeight: 1.8, color: "#666", marginBottom: "1.5rem" }}> */}
+                  {/* <p><strong>Let's chat!</strong> Right now, I'm really interested in the following questions:</p>
+                    <ul>
+                      <li>How are the aesthetics of human creators influenced by the pervasiveness of generative AI content?</li>
+                      <li>How can we computationally model the spread of visual culture on modern short-form video platforms?</li>
+                      <li>How do we build human-AI co-drawing interactions that preserve human agency and foster creativity?</li>
+                    </ul>
+                </p> */}
                 <p style={{ fontSize: "0.7rem", lineHeight: 1.8, color: "#666", marginBottom: "1.5rem" }}>
                   I am grateful to have been awarded the <span style={{ color: COLORS.moss, fontWeight: 600 }}>NSF CSGrad4US</span> and <span style={{ color: COLORS.moss, fontWeight: 600 }}>Berkeley Chancellor's Fellowship</span> for my research.
                 </p>
                 
                 <p style={{ fontSize: "0.7rem", color: "#888", lineHeight: 1.7 }}>
-                  Previously : SWE at <strong>Squarespace</strong> · <a href="https://www.cs.columbia.edu/~chilton/" style={{ color: COLORS.moss, textDecoration: "none", fontWeight: 600 }}>Computational Design Lab at Columbia</a> under Prof. Lydia Chilton<br />
-                  <em>I also enjoy:</em> ecology · <a href="https://samia-sketchbook.vercel.app" style={{ color: COLORS.terracotta, textDecoration: "none" }}>illustration</a> · archaeology · data visualization 
+                  Previously I was SWE at <strong>Squarespace</strong> and worked in the <a href="https://www.cs.columbia.edu/~chilton/" style={{ color: COLORS.moss, textDecoration: "none", fontWeight: 600 }}>Computational Design Lab at Columbia</a> under Prof. Lydia Chilton.<br />
+                  <em>I also enjoy </em> ecology, <a href="https://samia-sketchbook.vercel.app" style={{ color: COLORS.terracotta, textDecoration: "none" }}>illustration</a>, archaeology  & data visualization !
                 </p>
               </div>
             </div>
           </Reveal>
 
-          <Reveal delay={300}>
+          {/* <Reveal delay={300}>
             <div style={{ marginTop: "3rem", display: "flex", gap: "1rem", alignItems: "center" }}>
               <a href="#research" style={{ display: "inline-block", padding: "0.7rem 1.8rem", background: COLORS.moss, color: "white", borderRadius: 30, textDecoration: "none", fontSize: "0.88rem", fontWeight: 500, transition: "all 0.25s", letterSpacing: "0.03em" }} onMouseEnter={e => { e.target.style.background = COLORS.darkMoss; e.target.style.transform = "translateY(-2px)"; }} onMouseLeave={e => { e.target.style.background = COLORS.moss; e.target.style.transform = "none"; }}>
                 See my work ↓
               </a>
             </div>
-          </Reveal>
+          </Reveal> */}
         </section>
 
           <div style={{ display: "flex", alignItems: "center", gap: "1rem", margin: "1rem 0 3rem" }}>

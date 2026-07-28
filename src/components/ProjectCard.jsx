@@ -12,12 +12,12 @@ export default function ProjectCard({ emoji, title, authors, venue, links, descr
       onMouseLeave={() => setHovered(false)}
       style={{
         padding: "1.5rem 1.75rem",
-        background: hovered ? COLORS.lightSage : COLORS.warmWhite,
-        border: `1.5px solid ${hovered ? COLORS.sage : "#E8E2DA"}`,
+        background: COLORS.warmWhite,
+        border: `1.5px solid  #E8E2DA`,
         borderRadius: 12,
         marginBottom: "1rem",
         transition: "all 0.3s ease",
-        transform: hovered ? "translateX(6px)" : "none",
+        // transform: hovered ? "translateX(6px)" : "none",
         cursor: "default",
       }}
     >
