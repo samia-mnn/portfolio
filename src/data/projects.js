@@ -24,7 +24,7 @@ export const PROJECTS = [
     emoji: "🧠",
     title: "Schemex: Interactive Structural Abstraction from Examples with Contrastive Refinement",
     authors: "Sitong Wang, Samia Menon, Ding Li, Xiaojuan Ma, Rich Zemel, Lydia Chilton",
-    venue: "Under submission to UIST 2026",
+    venue: "ACM HCOMP 2026",
     links: [{ label: "Paper", href: "https://arxiv.org/pdf/2504.11795" }, { label: "Video", href: "https://youtu.be/HABWaCx7kwE" }],
     image: schemexImg,
     imageAlt: "Schemex project preview",
