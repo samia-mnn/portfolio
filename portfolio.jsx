@@ -18,6 +18,7 @@ import Reveal from "./src/components/Reveal";
 import ProjectCard from "./src/components/ProjectCard";
 import PdfEmbed from "./src/components/PdfEmbed";
 import SidePeek from "./src/components/SidePeek";
+import PeopleBookshelf from "./src/components/PeopleBookshelf";
 
 // components and constants are now split into separate files under src/
 
@@ -79,7 +80,9 @@ export default function Portfolio() {
       lastScrollRef.current = progress;
 
       if (scrollTop < 300) setActiveSection("home");
-      else setActiveSection("research");
+      else if (scrollTop >= 300 && scrollTop < 1200) setActiveSection("research");
+      else if (scrollTop >= 1200 && scrollTop < document.documentElement.scrollHeight - 800) setActiveSection("people");
+      else setActiveSection("cv");
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => { window.removeEventListener("scroll", handleScroll); window.removeEventListener("resize", onResize); };
@@ -252,6 +255,21 @@ export default function Portfolio() {
             </Reveal>
           ))}
 
+        </section>
+
+        <section id="people" style={{ marginTop: "4rem", paddingTop: "2rem" }}>
+          <Reveal>
+            <div style={{ display: "flex", alignItems: "center", gap: "1rem", flexWrap: "wrap", marginBottom: "0.75rem" }}>
+              <h2 style={{ fontSize: "1.6rem", fontWeight: 600, color: COLORS.ink, margin: 0 }}>
+                people
+              </h2>
+            </div>
+            <p style={{ fontSize: "0.88rem", color: "#999", marginBottom: "2rem", fontStyle: "italic" }}>
+              A bookshelf of the mentors and friends who have supported me in my research (and beyond)!
+            </p>
+          </Reveal>
+
+          <PeopleBookshelf />
         </section>
 
   <PdfEmbed src={resumePdf} height={520} />

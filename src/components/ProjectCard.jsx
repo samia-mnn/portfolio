@@ -2,6 +2,44 @@ import React, { useState } from "react";
 import { COLORS } from "../constants/colors";
 import MoreInfoModal from "./MoreInfoModal";
 
+function renderHighlightedText(text) {
+  if (!text) return null;
+
+  const regex = /\b(samia\s+menon)\b/gi;
+  const parts = [];
+  let lastIndex = 0;
+  let match;
+
+  while ((match = regex.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(text.slice(lastIndex, match.index));
+    }
+
+    parts.push(
+      <span
+        key={`${match.index}-${match[0]}`}
+        style={{
+          textDecoration: "underline",
+          textDecorationColor: COLORS.moss,
+          textDecorationStyle: "solid",
+          textDecorationThickness: "1px",
+          textUnderlineOffset: "0.14em",
+        }}
+      >
+        {match[0]}
+      </span>
+    );
+
+    lastIndex = match.index + match[0].length;
+  }
+
+  if (lastIndex < text.length) {
+    parts.push(text.slice(lastIndex));
+  }
+
+  return parts.length > 0 ? parts : text;
+}
+
 export default function ProjectCard({ emoji, title, authors, venue, links, description, moreInfo, image, imageAlt }) {
   const [hovered, setHovered] = useState(false);
   const [moreOpen, setMoreOpen] = useState(false);
@@ -48,10 +86,10 @@ export default function ProjectCard({ emoji, title, authors, venue, links, descr
         </div>
         <div style={{ flex: 1, minWidth: 0, padding: "1rem 1.1rem 1rem 0.9rem" }}>
           <p style={{ margin: 0,  fontSize: "1rem", fontWeight: 600, color: COLORS.ink, lineHeight: 1.4 }}>
-            {title}
+            {renderHighlightedText(title)}
           </p>
-          <p style={{ margin: "0.3rem 0 0.2rem", fontSize: "0.82rem", color: "#888", fontStyle: "italic" }}>{authors}</p>
-          <p style={{ margin: "0 0 0.5rem", fontSize: "0.82rem", fontWeight: 600, color: COLORS.moss }}>{venue}</p>
+          <p style={{ margin: "0.3rem 0 0.2rem", fontSize: "0.82rem", color: "#888", fontStyle: "italic" }}>{renderHighlightedText(authors)}</p>
+          <p style={{ margin: "0 0 0.5rem", fontSize: "0.82rem", fontWeight: 600, color: COLORS.moss }}>{renderHighlightedText(venue)}</p>
           {links && (
             <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
               {links.map((l, i) => (

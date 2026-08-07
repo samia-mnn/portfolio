@@ -3,7 +3,7 @@ import { COLORS } from "../constants/colors";
 import apuImg from "../assets/apu.png";
 
 export default function Nav({ activeSection }) {
-  const links = ["Home", "Research", "CV"];
+  const links = ["Home", "Research", "People", "CV"];
   return (
     <nav style={{
       position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
@@ -20,7 +20,7 @@ export default function Nav({ activeSection }) {
         </div>
         <div style={{ display: "flex", gap: "2rem" }}>
           {links.map(l => (
-            <a key={l} href={l === "Home" ? "#top" : l === "Research" ? "#research" : "#cv"}
+            <a key={l} href={l === "Home" ? "#top" : l === "Research" ? "#research" : l === "People" ? "#people" : "#cv"}
               onClick={e => {
                 if (l === "CV") {
                   e.preventDefault();
