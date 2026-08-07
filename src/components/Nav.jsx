@@ -11,14 +11,35 @@ export default function Nav({ activeSection }) {
       padding: "1.2rem 2rem",
       background: `linear-gradient(to bottom, ${COLORS.cream}EE, ${COLORS.cream}00)`,
     }}>
-      <div style={{ display: "flex", gap: "2.5rem", alignItems: "center" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+      <style>{`
+        @media (max-width: 700px) {
+          .nav-shell {
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+          }
+          .nav-title-group {
+            justify-content: center;
+          }
+          .nav-links {
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.8rem 1.1rem;
+          }
+          .nav-shell-gap { gap: 2.5rem; }
+          @media (max-width: 700px) {
+            .nav-shell-gap { gap: 1rem !important; }
+          }
+        }
+      `}</style>
+      <div className="nav-shell nav-shell-gap" style={{ display: "flex", gap: "2.5rem", alignItems: "center" }}>
+        <div className="nav-title-group" style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
           <img src={apuImg} alt="apple" style={{ width: 50, height: "auto" }} />
-          <span style={{  fontSize: "1.1rem", color: COLORS.moss, fontWeight: 700 }}>
-            samia menon 
+          <span style={{ fontSize: "1.1rem", color: COLORS.moss, fontWeight: 700 }}>
+            samia menon
           </span>
         </div>
-        <div style={{ display: "flex", gap: "2rem" }}>
+        <div className="nav-links" style={{ display: "flex", gap: "2rem" }}>
           {links.map(l => (
             <a key={l} href={l === "Home" ? "#top" : l === "Research" ? "#research" : l === "People" ? "#people" : "#cv"}
               onClick={e => {
