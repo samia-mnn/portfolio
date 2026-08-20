@@ -8,9 +8,19 @@ import viralityImg from "../assets/virality.png";
 import carbonCatchersImg from "../assets/carbon catchers.png";
 import schemexImg from "../assets/schemex.png"
 import reelframerImg from "../assets/reelframer.png"
+import breakdownImg from "../assets/breakdown.gif"
 
 
 export const PROJECTS = [
+    {
+    emoji: "🔨",
+    title: "Predicting Tool Extension In VR Interactions using Gaze Features",
+    authors: "James Smith, Samia Menon, Jessie Liu, Vivian Chan, Bjoern Hartmann",
+    venue: "UIST 2026",
+    links: [],
+    image: breakdownImg,
+    imageAlt: "Predicting Tool Extension In VR Interactions project preview",
+  },
   {
     emoji: "🦦",
     title: "Designing for Dialogue: Computational Methods for Conservation Communication",
@@ -24,7 +34,7 @@ export const PROJECTS = [
     emoji: "🧠",
     title: "Schemex: Interactive Structural Abstraction from Examples with Contrastive Refinement",
     authors: "Sitong Wang, Samia Menon, Ding Li, Xiaojuan Ma, Rich Zemel, Lydia Chilton",
-    venue: "ACM HCOMP 2026",
+    venue: "HCOMP 2026",
     links: [{ label: "Paper", href: "https://arxiv.org/pdf/2504.11795" }, { label: "Video", href: "https://youtu.be/HABWaCx7kwE" }],
     image: schemexImg,
     imageAlt: "Schemex project preview",
