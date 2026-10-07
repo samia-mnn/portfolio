@@ -175,7 +175,7 @@ export default function Portfolio() {
                   </h1>
                 </div>
                 <p style={{ fontSize: "0.8rem", lineHeight: 1.8, color: "#555", marginBottom: "1.2rem" }}>
-                  A first-year PhD student in Computer Science (HCI) at <strong style={{ color: COLORS.ink }}>UC Berkeley</strong>, co-advised by <a href="https://people.eecs.berkeley.edu/~bjoern/" style={{ color: COLORS.moss, textDecoration: "none", borderBottom: `1px dotted ${COLORS.moss}` }}>Bjoern Hartmann</a> and <a href="https://people.ischool.berkeley.edu/~hearst/" style={{ color: COLORS.moss, textDecoration: "none", borderBottom: `1px dotted ${COLORS.moss}` }}>Marti Hearst</a>.
+                  A second-year PhD student in Computer Science (HCI) at <strong style={{ color: COLORS.ink }}>UC Berkeley</strong>, co-advised by <a href="https://people.eecs.berkeley.edu/~bjoern/" style={{ color: COLORS.moss, textDecoration: "none", borderBottom: `1px dotted ${COLORS.moss}` }}>Bjoern Hartmann</a> and <a href="https://people.ischool.berkeley.edu/~hearst/" style={{ color: COLORS.moss, textDecoration: "none", borderBottom: `1px dotted ${COLORS.moss}` }}>Marti Hearst</a>.
                 </p>
                 <p style={{ fontSize: "0.7rem", lineHeight: 1.8, color: "#666", marginBottom: "1.5rem" }}>
                   My current research draws on HCI, ML, and computational social science to investigate how AI-mediated environments shape the information we consume and create.

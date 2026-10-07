@@ -9,9 +9,40 @@ import carbonCatchersImg from "../assets/carbon catchers.png";
 import schemexImg from "../assets/schemex.png"
 import reelframerImg from "../assets/reelframer.png"
 import breakdownImg from "../assets/breakdown.gif"
+import froggiImg from "../assets/froggi-demo.gif"
+import modelingImg from "../assets/modeling.png"
+import rembrandtImg from "../assets/rembrandt.png"
+
 
 
 export const PROJECTS = [
+   {
+    emoji: "🔨",
+    title: "Craft Capital: How the Growth of Generative AI Shapes How Creatives Value, Make, and Share Visual Media",
+    authors: "Samia Menon, Maixin Zhang, Samyukta Sanjay Jayaram, Jessie Liu, Bjoern Hartmann, Marti Hearst",
+    venue: "Under Submission",
+    links: [],
+    image: rembrandtImg,
+    imageAlt: "A set of Rembrandt sketches",
+  },
+   {
+    emoji: "🔨",
+    title: "“We Drew Together”: Designing for Dynamic Agency Negotiation in Human-AI Co-Creation",
+    authors: "Samia Menon, Samyukta Sanjay Jayaram, Jessie Liu,  Shm Almeda, Bjoern Hartmann",
+    venue: "Under Submission",
+    links: [],
+    image: froggiImg,
+    imageAlt: "Froggi-Draw interface",
+  },
+   {
+    emoji: "🔨",
+    title: "Modeling the Transmission of Visual Culture on TikTok",
+    authors: "Samia Menon, Daeyoung Kim, Bjoern Hartmann*, Marti Hearst*",
+    venue: "Work in Progress",
+    links: [],
+    image: modelingImg,
+    imageAlt: "TikTok preview",
+  },
     {
     emoji: "🔨",
     title: "Predicting Tool Extension In VR Interactions using Gaze Features",
