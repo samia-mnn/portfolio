@@ -161,7 +161,6 @@ export default function Portfolio() {
             <div className="hero-row" style={{ display: "flex", alignItems: "center", gap: "2rem", flexWrap: "wrap" }}>
                 <div className="hero-photo-stack" style={{ position: "relative", width: "12em", flexShrink: 0, display: "flex", flexDirection: "column", alignItems: "center" }}>
                   <p className="hero-greeting" style={{ fontSize: "0.9rem", letterSpacing: "0.12em", color: COLORS.sage, marginBottom: "0.9rem", textAlign: "center", width: "100%" }}>
-                    <Reveal delay={300}>hello! </Reveal>
                   </p>
                   <div className="hero-photo-wrap" style={{ position: "relative", width: "12em" }}>
                     <img src={thinversImg} alt="Samia Menon" style={{ width: "12em", height: "auto", display: "block", borderRadius: 8, zIndex: 1 }} />
