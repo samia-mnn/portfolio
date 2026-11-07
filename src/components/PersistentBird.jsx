@@ -37,7 +37,7 @@ export default function PersistentBird({ visible = false, side = "right", top = 
     <div style={{ ...containerStyle, transform }} aria-hidden>
       <span style={{ display: "inline-block" }}>
         {birdSrc ? (
-          <img style={{ width: "3.5em", height: "auto" }} src={birdSrc} alt="Flying Bird" />
+          <img className="paper-cutout" style={{ width: "3.5em", height: "auto" }} src={birdSrc} alt="Flying Bird" />
         ) : (
           <span style={{ fontSize: "2.2rem" }}>{emoji}</span>
         )}

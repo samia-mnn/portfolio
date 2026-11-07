@@ -4,6 +4,9 @@ import magImg from "./src/assets/mag.png";
 import viewImg from "./src/assets/view.png";
 import resumePdf from "./src/assets/resume.pdf";
 import classImg from "./src/assets/class.png";
+import bluebirdImg from "./src/assets/bluebird.webp";
+import cardinalImg from "./src/assets/card.webp";
+import warblerImg from "./src/assets/warbler.webp";
 import { COLORS } from "./src/constants/colors";
 import { PROJECTS } from "./src/data/projects";
 import FlowerSidebar from "./src/components/FlowerSidebar";
@@ -19,6 +22,39 @@ import ProjectCard from "./src/components/ProjectCard";
 import PdfEmbed from "./src/components/PdfEmbed";
 import SidePeek from "./src/components/SidePeek";
 import PeopleBookshelf from "./src/components/PeopleBookshelf";
+import ImageCredits from "./src/components/ImageCredits";
+
+// a bird perches on every third project card, alternating sides; `faces` is the direction the art faces
+const PROJECT_BIRDS = [
+  { src: bluebirdImg, faces: "right", width: "4.2rem" },
+  { src: cardinalImg, faces: "left", width: "5rem" },
+  { src: warblerImg, faces: "left", width: "4.6rem" },
+];
+
+function PerchedBird({ index, isWide }) {
+  const bird = PROJECT_BIRDS[index % PROJECT_BIRDS.length];
+  const side = index % 2 === 0 ? "right" : "left";
+  // mirror the art so every bird faces in toward the page
+  const flip = bird.faces === side;
+  return (
+    <div
+      className="paper-cutout"
+      aria-hidden="true"
+      style={{
+        position: "absolute",
+        top: 0,
+        // half the bird hangs off the card; on narrow screens keep it inside the page gutter
+        [side]: isWide ? `calc(${bird.width} / -2)` : "-1.5rem",
+        width: bird.width,
+        transform: "translateY(-85%)",
+        zIndex: 2,
+        pointerEvents: "none",
+      }}
+    >
+      <img src={bird.src} alt="" style={{ width: "100%", height: "auto", display: "block", transform: flip ? "scaleX(-1)" : "none" }} />
+    </div>
+  );
+}
 
 // components and constants are now split into separate files under src/
 
@@ -52,6 +88,13 @@ export default function Portfolio() {
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: ${COLORS.cream}; }
         ::-webkit-scrollbar-thumb { background: ${COLORS.sage}; border-radius: 3px; }
+        .paper-cutout { filter: url(#paper-cutout); }
+        .paper-label { filter: url(#paper-label); }
+        .paper-sheet { filter: url(#paper-sheet); }
+        .sewing-button { width: 1.35rem; height: 1.35rem; display: block; filter: drop-shadow(0.5px 1.5px 1.5px rgba(60, 40, 20, 0.35)); transition: transform 0.35s ease; }
+        .link-with-button:hover .sewing-button { transform: rotate(25deg); }
+        @keyframes credits-fade { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes credits-pop { from { opacity: 0; transform: translateY(12px) rotate(-1deg); } to { opacity: 1; transform: none; } }
       `;
       document.head.appendChild(s);
       document.body.classList.add("portfolio-app");
@@ -140,6 +183,60 @@ export default function Portfolio() {
         }
       `}</style>
 
+      <svg width="0" height="0" style={{ position: "absolute" }} aria-hidden="true">
+        {/* cream paper edge traced around the image shape, roughened, with a soft shadow */}
+        <filter id="paper-cutout" x="-20%" y="-20%" width="140%" height="140%" colorInterpolationFilters="sRGB">
+          <feMorphology in="SourceAlpha" operator="dilate" radius="4" result="grown" />
+          <feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="2" seed="4" result="noise" />
+          <feDisplacementMap in="grown" in2="noise" scale="7" xChannelSelector="R" yChannelSelector="G" result="edge" />
+          <feFlood floodColor="#F6EEDD" />
+          <feComposite in2="edge" operator="in" result="paper" />
+          <feGaussianBlur in="edge" stdDeviation="2" />
+          <feOffset dx="1.5" dy="3" result="shadowShape" />
+          <feFlood floodColor="rgb(70, 50, 25)" floodOpacity="0.28" />
+          <feComposite in2="shadowShape" operator="in" result="shadow" />
+          <feMerge>
+            <feMergeNode in="shadow" />
+            <feMergeNode in="paper" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+        {/* smaller variant for text labels */}
+        <filter id="paper-label" x="-20%" y="-30%" width="140%" height="160%" colorInterpolationFilters="sRGB">
+          <feMorphology in="SourceAlpha" operator="dilate" radius="1.5" result="grown" />
+          <feTurbulence type="fractalNoise" baseFrequency="0.08" numOctaves="2" seed="9" result="noise" />
+          <feDisplacementMap in="grown" in2="noise" scale="4" xChannelSelector="R" yChannelSelector="G" result="edge" />
+          <feFlood floodColor="#F6EEDD" />
+          <feComposite in2="edge" operator="in" result="paper" />
+          <feGaussianBlur in="edge" stdDeviation="1.2" />
+          <feOffset dx="0.8" dy="1.6" result="shadowShape" />
+          <feFlood floodColor="rgb(70, 50, 25)" floodOpacity="0.3" />
+          <feComposite in2="shadowShape" operator="in" result="shadow" />
+          <feMerge>
+            <feMergeNode in="shadow" />
+            <feMergeNode in="paper" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+        {/* lighter, gentler-edged paper for project cards */}
+        <filter id="paper-sheet" x="-5%" y="-20%" width="110%" height="140%" colorInterpolationFilters="sRGB">
+          <feMorphology in="SourceAlpha" operator="dilate" radius="2" result="grown" />
+          <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" seed="2" result="noise" />
+          <feDisplacementMap in="grown" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G" result="edge" />
+          <feFlood floodColor="#FCF9F2" />
+          <feComposite in2="edge" operator="in" result="paper" />
+          <feGaussianBlur in="edge" stdDeviation="2" />
+          <feOffset dx="1" dy="2.5" result="shadowShape" />
+          <feFlood floodColor="rgb(70, 50, 25)" floodOpacity="0.18" />
+          <feComposite in2="shadowShape" operator="in" result="shadow" />
+          <feMerge>
+            <feMergeNode in="shadow" />
+            <feMergeNode in="paper" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </svg>
+
     {/* #<FloatingPetals /> */}
   <CursorFinger />
       {/* <FlowerSidebar scrollProgress={scrollProgress} side="left" />
@@ -163,7 +260,7 @@ export default function Portfolio() {
                   <p className="hero-greeting" style={{ fontSize: "0.9rem", letterSpacing: "0.12em", color: COLORS.sage, marginBottom: "0.9rem", textAlign: "center", width: "100%" }}>
                   </p>
                   <div className="hero-photo-wrap" style={{ position: "relative", width: "12em" }}>
-                    <img src={thinversImg} alt="Samia Menon" style={{ width: "12em", height: "auto", display: "block", borderRadius: 8, zIndex: 1 }} />
+                    <img className="paper-cutout" src={thinversImg} alt="Samia Menon" style={{ width: "12em", height: "auto", display: "block", zIndex: 1 }} />
                   </div>
               </div>
 
@@ -211,7 +308,7 @@ export default function Portfolio() {
 
           <div style={{ display: "flex", alignItems: "center", gap: "1rem", margin: "1rem 0 3rem" }}>
           <div style={{ flex: 1, height: "1px", background: `linear-gradient(to right, transparent, ${COLORS.sage}40)` }} />
-          <img src={magImg} alt="sep" style={{ width: 100, height: "auto", opacity: 0.95 }} />
+          <img className="paper-cutout" src={magImg} alt="sep" style={{ width: 100, height: "auto", opacity: 0.95 }} />
           <div style={{ flex: 1, height: "1px", background: `linear-gradient(to left, transparent, ${COLORS.sage}40)` }} />
         </div>
 
@@ -231,6 +328,7 @@ export default function Portfolio() {
               {i === 0 ? (
                 <div style={{ position: "relative" }}>
                   <img
+                    className="paper-cutout"
                     src={viewImg}
                     alt="view"
                     style={{
@@ -247,6 +345,11 @@ export default function Portfolio() {
                   <div style={{ position: "relative", zIndex: 1 }}>
                     <ProjectCard {...p} />
                   </div>
+                </div>
+              ) : i % 3 === 2 ? (
+                <div style={{ position: "relative" }}>
+                  <PerchedBird index={(i - 2) / 3} isWide={isWide} />
+                  <ProjectCard {...p} />
                 </div>
               ) : (
                 <ProjectCard {...p} />
@@ -275,10 +378,10 @@ export default function Portfolio() {
 
   <footer style={{ marginTop: "2rem", paddingTop: "2rem", borderTop: `1px solid ${COLORS.sage}30`, textAlign: "center" }}>
           <Reveal>
-            <p style={{ fontSize: "0.5rem", color: "#aaa" }}>
-              <img src={classImg} alt="class" style={{ width: 160, height: "auto", opacity: 0.95 }} />
-               <br></br>Image credits:  Apple (Illustrated Dictionary of Gardening – A Practical and Scientific Encyclopaedia of Horticulture, edited by George Nicholson - 1885), Birds (Birds of America, John James Audubon - 1838), Footer (San Francisco Chronicle on Rose O'Halloran - 1894), Woman with Binoculars (Advertisment for Samuel Levy Watches, Clocks, ETC, Suffolk, VA), Background (Lake of the Mountains, Thomas Doughty - 1826 - Currently displayed at the de Young Museum, San Francisco)
-            </p>
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "0.8rem" }}>
+              <img className="paper-cutout" src={classImg} alt="class" style={{ width: 160, height: "auto", opacity: 0.95 }} />
+              <ImageCredits />
+            </div>
           </Reveal>
         </footer>
       </main>

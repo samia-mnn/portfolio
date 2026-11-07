@@ -1,4 +1,6 @@
 import React from "react";
+import { COLORS } from "../constants/colors";
+import button2Img from "../assets/buttons/button 2.png";
 
 export default function PdfEmbed({ src, title = "Embedded PDF", height = 600 }) {
   if (!src) {
@@ -10,10 +12,13 @@ export default function PdfEmbed({ src, title = "Embedded PDF", height = 600 }) 
   }
 
   return (
-    <div style={{ marginTop: "2rem", borderRadius: 8, overflow: "hidden", border: "1px solid #eee" }}>
-      <div style={{ padding: "0.6rem", background: "#fafafa", textAlign: "center", fontSize: "0.9rem", color: "#666" }}>
-        View my CV <a href={src} target="_blank" rel="noopener noreferrer">here</a>.
-      </div>
+    <div className="paper-sheet" style={{ marginTop: "2rem", padding: "0.8rem", background: "#FCF9F2", textAlign: "center", fontSize: "0.9rem", color: "#666" }}>
+      View my CV{" "}
+      <span className="link-with-button" style={{ display: "inline-flex", alignItems: "center", gap: "0.3rem", verticalAlign: "middle" }}>
+        <img className="sewing-button" src={button2Img} alt="" aria-hidden="true" />
+        <a href={src} target="_blank" rel="noopener noreferrer" style={{ color: COLORS.terracotta, textDecoration: "underline", textUnderlineOffset: "0.15em" }}>here</a>
+      </span>
+      .
     </div>
   );
 }

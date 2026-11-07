@@ -27,27 +27,24 @@ export default function PeopleBookshelf() {
             alignItems: "center",
             textDecoration: "none",
             color: COLORS.ink,
-            transition: "transform 0.2s ease, box-shadow 0.2s ease",
+            transition: "transform 0.2s ease",
             transform: "translateY(0)",
             padding: "0.5rem 0.2rem 0",
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.transform = "translateY(-4px)";
-            e.currentTarget.style.boxShadow = `0 8px 16px ${COLORS.sage}22`;
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.transform = "translateY(0)";
-            e.currentTarget.style.boxShadow = "none";
           }}
         >
           <div
+            className="paper-cutout"
             style={{
               width: "5.2rem",
               height: "7rem",
               position: "relative",
               overflow: "hidden",
-              border: `2px solid ${COLORS.ink}20`,
-              boxShadow: `inset 0 0 0 1px ${COLORS.cream}`,
               background: COLORS.cream,
             }}
           >
@@ -62,20 +59,19 @@ export default function PeopleBookshelf() {
               }}
             />
             <div
+              className="paper-label"
               style={{
                 position: "absolute",
                 left: "0.35rem",
                 right: "0.35rem",
                 top: "0.35rem",
-                background: "rgba(255, 255, 255, 0.78)",
-                backdropFilter: "blur(4px)",
+                background: "#F6EEDD",
                 padding: "0.3rem 0.35rem",
                 textAlign: "center",
                 fontSize: "0.58rem",
                 lineHeight: 1.2,
                 fontWeight: 700,
                 color: COLORS.ink,
-                boxShadow: "0 2px 8px rgba(0, 0, 0, 0.06)",
               }}
             >
               {book.title}

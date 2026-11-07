@@ -7,6 +7,7 @@ export default function FlowerImage({ src, baseSize, x, y, size = 1, progress = 
   const top  = y - dim;
   return (
     <img
+      className="paper-cutout"
       src={src}
       alt=""
       style={{

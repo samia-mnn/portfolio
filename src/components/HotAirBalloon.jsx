@@ -96,7 +96,7 @@ export default function HotAirBalloon({ minInterval = 6000, maxInterval = 14000 
 
   return (
     <div style={containerStyle} aria-hidden>
-      <img src={balloonImg} alt="hot air balloon" style={imgStyle} />
+      <img className="paper-cutout" src={balloonImg} alt="hot air balloon" style={imgStyle} />
     </div>
   );
 }

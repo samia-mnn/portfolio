@@ -34,7 +34,7 @@ export default function Nav({ activeSection }) {
       `}</style>
       <div className="nav-shell nav-shell-gap" style={{ display: "flex", gap: "2.5rem", alignItems: "center" }}>
         <div className="nav-title-group" style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-          <img src={apuImg} alt="apple" style={{ width: 50, height: "auto" }} />
+          <img className="paper-cutout" src={apuImg} alt="apple" style={{ width: 50, height: "auto" }} />
           <span style={{ fontSize: "1.1rem", color: COLORS.moss, fontWeight: 700 }}>
             samia menon
           </span>

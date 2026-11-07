@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import { COLORS } from "../constants/colors";
 import MoreInfoModal from "./MoreInfoModal";
+import buttonImg from "../assets/buttons/button.png";
+import button2Img from "../assets/buttons/button 2.png";
+import button3Img from "../assets/buttons/button 3.png";
+
+// a different sewing button sits beside each link, in order
+const SEWING_BUTTONS = [buttonImg, button2Img, button3Img];
 
 function renderHighlightedText(text) {
   if (!text) return null;
@@ -49,12 +55,11 @@ export default function ProjectCard({ emoji, title, authors, venue, links, descr
     <div
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      className="paper-sheet"
       style={{
         padding: 0,
-        background: COLORS.warmWhite,
-        border: `1.5px solid  #E8E2DA`,
-        borderRadius: 12,
-        marginBottom: "1rem",
+        background: "#FCF9F2",
+        marginBottom: "1.25rem",
         overflow: "hidden",
         transition: "all 0.3s ease",
         // transform: hovered ? "translateX(6px)" : "none",
@@ -91,30 +96,27 @@ export default function ProjectCard({ emoji, title, authors, venue, links, descr
           <p style={{ margin: "0.3rem 0 0.2rem", fontSize: "0.82rem", color: "#888", fontStyle: "italic" }}>{renderHighlightedText(authors)}</p>
           <p style={{ margin: "0 0 0.5rem", fontSize: "0.82rem", fontWeight: 600, color: COLORS.moss }}>{renderHighlightedText(venue)}</p>
           {links && (
-            <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
+            <div style={{ display: "flex", gap: "0.7rem", flexWrap: "wrap" }}>
               {links.map((l, i) => (
-                l.modal ? (
-                  <button key={i} onClick={() => { setMoreData(moreInfo || null); setMoreOpen(true); }} style={{
-                    fontSize: "0.78rem", fontFamily: "inherit", color: COLORS.terracotta,
-                    background: "transparent", border: `1px solid ${COLORS.terracotta}`,
-                    borderRadius: 20, padding: "2px 10px", cursor: "pointer",
-                    transition: "all 0.2s",
-                  }} onMouseEnter={e => { e.target.style.background = COLORS.terracotta; e.target.style.color = "white"; }} onMouseLeave={e => { e.target.style.background = "transparent"; e.target.style.color = COLORS.terracotta; }}>
+                <span key={i} className="link-with-button" style={{ display: "inline-flex", alignItems: "center", gap: "0.3rem" }}>
+                <img className="sewing-button" src={SEWING_BUTTONS[i % SEWING_BUTTONS.length]} alt="" aria-hidden="true" />
+                {l.modal ? (
+                  <button onClick={() => { setMoreData(moreInfo || null); setMoreOpen(true); }} style={{
+                    fontSize: "0.8rem", fontFamily: "inherit", color: COLORS.terracotta,
+                    background: "transparent", border: "none", padding: 0, cursor: "pointer",
+                    textDecoration: "underline", textUnderlineOffset: "0.15em",
+                  }}>
                     {l.label}
                   </button>
                 ) : (
-                  <a key={i} href={l.href} target="_blank" rel="noopener noreferrer" style={{
-                    fontSize: "0.78rem", color: COLORS.terracotta,
-                    textDecoration: "none", border: `1px solid ${COLORS.terracotta}`,
-                    borderRadius: 20, padding: "2px 10px",
-                    transition: "all 0.2s",
-                  }}
-                    onMouseEnter={e => { e.target.style.background = COLORS.terracotta; e.target.style.color = "white"; }}
-                    onMouseLeave={e => { e.target.style.background = "transparent"; e.target.style.color = COLORS.terracotta; }}
-                  >
+                  <a href={l.href} target="_blank" rel="noopener noreferrer" style={{
+                    fontSize: "0.8rem", color: COLORS.terracotta,
+                    textDecoration: "underline", textUnderlineOffset: "0.15em",
+                  }}>
                     {l.label}
                   </a>
-                )
+                )}
+                </span>
               ))}
             </div>
           )}

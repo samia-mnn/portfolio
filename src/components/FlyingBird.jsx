@@ -72,7 +72,7 @@ export default function FlyingBird({ trigger }) {
 
   return (
     <div style={{ ...containerStyle, transform }} aria-hidden>
-      <span style={{ display: "inline-block" }}><img style={{ width: "5em", height: "auto" }} src={foxImg} alt="Flying Bird" /></span>
+      <span style={{ display: "inline-block" }}><img className="paper-cutout" style={{ width: "5em", height: "auto" }} src={foxImg} alt="Flying Bird" /></span>
     </div>
   );
 }
