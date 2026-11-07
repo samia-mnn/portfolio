@@ -58,9 +58,7 @@ export default function ProjectCard({ emoji, title, authors, venue, links, descr
       className="paper-sheet"
       style={{
         padding: 0,
-        background: "#FCF9F2",
         marginBottom: "1.25rem",
-        overflow: "hidden",
         transition: "all 0.3s ease",
         // transform: hovered ? "translateX(6px)" : "none",
         cursor: "default",

@@ -90,7 +90,9 @@ export default function Portfolio() {
         ::-webkit-scrollbar-thumb { background: ${COLORS.sage}; border-radius: 3px; }
         .paper-cutout { filter: url(#paper-cutout); }
         .paper-label { filter: url(#paper-label); }
-        .paper-sheet { filter: url(#paper-sheet); }
+        /* the filter goes on a backing layer, not the content, so text and images stay crisp (mobile Safari renders filtered content at low resolution) */
+        .paper-sheet { position: relative; isolation: isolate; }
+        .paper-sheet::before { content: ""; position: absolute; inset: 0; z-index: -1; background: #FCF9F2; filter: url(#paper-sheet); }
         .sewing-button { width: 1.35rem; height: 1.35rem; display: block; filter: drop-shadow(0.5px 1.5px 1.5px rgba(60, 40, 20, 0.35)); transition: transform 0.35s ease; }
         .link-with-button:hover .sewing-button { transform: rotate(25deg); }
         @keyframes credits-fade { from { opacity: 0; } to { opacity: 1; } }

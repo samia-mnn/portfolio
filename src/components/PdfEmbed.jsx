@@ -12,7 +12,7 @@ export default function PdfEmbed({ src, title = "Embedded PDF", height = 600 }) 
   }
 
   return (
-    <div className="paper-sheet" style={{ marginTop: "2rem", padding: "0.8rem", background: "#FCF9F2", textAlign: "center", fontSize: "0.9rem", color: "#666" }}>
+    <div className="paper-sheet" style={{ marginTop: "2rem", padding: "0.8rem", textAlign: "center", fontSize: "0.9rem", color: "#666" }}>
       View my CV{" "}
       <span className="link-with-button" style={{ display: "inline-flex", alignItems: "center", gap: "0.3rem", verticalAlign: "middle" }}>
         <img className="sewing-button" src={button2Img} alt="" aria-hidden="true" />

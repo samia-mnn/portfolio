@@ -50,18 +50,15 @@ function CreditsPopup({ onClose }) {
         className="paper-sheet"
         onClick={(e) => e.stopPropagation()}
         style={{
-          position: "relative",
           width: "100%",
           maxWidth: "26rem",
-          maxHeight: "80vh",
-          overflowY: "auto",
-          background: "#FCF9F2",
-          padding: "1.4rem 1.4rem 1.2rem",
           fontFamily: "Averia Serif Libre, Georgia, serif",
           color: COLORS.ink,
           animation: "credits-pop 260ms ease",
         }}
       >
+        {/* scroll inside the sheet so the paper edge isn't clipped */}
+        <div style={{ position: "relative", maxHeight: "80vh", overflowY: "auto", padding: "1.4rem 1.4rem 1.2rem" }}>
         <button
           onClick={onClose}
           aria-label="Close"
@@ -86,6 +83,7 @@ function CreditsPopup({ onClose }) {
             </li>
           ))}
         </ul>
+        </div>
       </div>
     </div>,
     document.body
