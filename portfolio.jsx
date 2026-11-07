@@ -1,13 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
-import thinversImg from "./src/assets/thinvers.png";
-import magImg from "./src/assets/mag.png";
-import viewImg from "./src/assets/view.png";
+import thinversImg from "./src/assets/paper/thinvers.webp";
+import magImg from "./src/assets/paper/mag.webp";
+import viewImg from "./src/assets/paper/view.webp";
 import resumePdf from "./src/assets/resume.pdf";
-import classImg from "./src/assets/class.png";
-import bluebirdImg from "./src/assets/bluebird.webp";
-import cardinalImg from "./src/assets/card.webp";
-import warblerImg from "./src/assets/warbler.webp";
+import classImg from "./src/assets/paper/class.webp";
+import bluebirdImg from "./src/assets/paper/bluebird.webp";
+import cardinalImg from "./src/assets/paper/card.webp";
+import warblerImg from "./src/assets/paper/warbler.webp";
 import { COLORS } from "./src/constants/colors";
+import { PAPER_CSS } from "./src/constants/paper";
 import { PROJECTS } from "./src/data/projects";
 import FlowerSidebar from "./src/components/FlowerSidebar";
 import FloatingPetals from "./src/components/FloatingPetals";
@@ -38,7 +39,6 @@ function PerchedBird({ index, isWide }) {
   const flip = bird.faces === side;
   return (
     <div
-      className="paper-cutout"
       aria-hidden="true"
       style={{
         position: "absolute",
@@ -51,7 +51,7 @@ function PerchedBird({ index, isWide }) {
         pointerEvents: "none",
       }}
     >
-      <img src={bird.src} alt="" style={{ width: "100%", height: "auto", display: "block", transform: flip ? "scaleX(-1)" : "none" }} />
+      <img src={bird.src} alt="" style={{ width: "calc(100% + 24px)", margin: -12, height: "auto", display: "block", transform: flip ? "scaleX(-1)" : "none" }} />
     </div>
   );
 }
@@ -89,10 +89,7 @@ export default function Portfolio() {
         ::-webkit-scrollbar-track { background: ${COLORS.cream}; }
         ::-webkit-scrollbar-thumb { background: ${COLORS.sage}; border-radius: 3px; }
         .paper-cutout { filter: url(#paper-cutout); }
-        .paper-label { filter: url(#paper-label); }
-        /* the filter goes on a backing layer, not the content, so text and images stay crisp (mobile Safari renders filtered content at low resolution) */
-        .paper-sheet { position: relative; isolation: isolate; }
-        .paper-sheet::before { content: ""; position: absolute; inset: 0; z-index: -1; background: #FCF9F2; filter: url(#paper-sheet); }
+${PAPER_CSS}
         .sewing-button { width: 1.35rem; height: 1.35rem; display: block; filter: drop-shadow(0.5px 1.5px 1.5px rgba(60, 40, 20, 0.35)); transition: transform 0.35s ease; }
         .link-with-button:hover .sewing-button { transform: rotate(25deg); }
         @keyframes credits-fade { from { opacity: 0; } to { opacity: 1; } }
@@ -168,8 +165,8 @@ export default function Portfolio() {
             justify-content: center;
           }
           .hero-photo-wrap img {
-            width: min(70vw, 15rem);
-            max-width: 15rem;
+            width: calc(min(70vw, 15rem) + 24px);
+            max-width: calc(15rem + 24px);
           }
           .hero-text {
             min-width: 0;
@@ -203,40 +200,6 @@ export default function Portfolio() {
             <feMergeNode in="SourceGraphic" />
           </feMerge>
         </filter>
-        {/* smaller variant for text labels */}
-        <filter id="paper-label" x="-20%" y="-30%" width="140%" height="160%" colorInterpolationFilters="sRGB">
-          <feMorphology in="SourceAlpha" operator="dilate" radius="1.5" result="grown" />
-          <feTurbulence type="fractalNoise" baseFrequency="0.08" numOctaves="2" seed="9" result="noise" />
-          <feDisplacementMap in="grown" in2="noise" scale="4" xChannelSelector="R" yChannelSelector="G" result="edge" />
-          <feFlood floodColor="#F6EEDD" />
-          <feComposite in2="edge" operator="in" result="paper" />
-          <feGaussianBlur in="edge" stdDeviation="1.2" />
-          <feOffset dx="0.8" dy="1.6" result="shadowShape" />
-          <feFlood floodColor="rgb(70, 50, 25)" floodOpacity="0.3" />
-          <feComposite in2="shadowShape" operator="in" result="shadow" />
-          <feMerge>
-            <feMergeNode in="shadow" />
-            <feMergeNode in="paper" />
-            <feMergeNode in="SourceGraphic" />
-          </feMerge>
-        </filter>
-        {/* lighter, gentler-edged paper for project cards */}
-        <filter id="paper-sheet" x="-5%" y="-20%" width="110%" height="140%" colorInterpolationFilters="sRGB">
-          <feMorphology in="SourceAlpha" operator="dilate" radius="2" result="grown" />
-          <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" seed="2" result="noise" />
-          <feDisplacementMap in="grown" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G" result="edge" />
-          <feFlood floodColor="#FCF9F2" />
-          <feComposite in2="edge" operator="in" result="paper" />
-          <feGaussianBlur in="edge" stdDeviation="2" />
-          <feOffset dx="1" dy="2.5" result="shadowShape" />
-          <feFlood floodColor="rgb(70, 50, 25)" floodOpacity="0.18" />
-          <feComposite in2="shadowShape" operator="in" result="shadow" />
-          <feMerge>
-            <feMergeNode in="shadow" />
-            <feMergeNode in="paper" />
-            <feMergeNode in="SourceGraphic" />
-          </feMerge>
-        </filter>
       </svg>
 
     {/* #<FloatingPetals /> */}
@@ -262,7 +225,7 @@ export default function Portfolio() {
                   <p className="hero-greeting" style={{ fontSize: "0.9rem", letterSpacing: "0.12em", color: COLORS.sage, marginBottom: "0.9rem", textAlign: "center", width: "100%" }}>
                   </p>
                   <div className="hero-photo-wrap" style={{ position: "relative", width: "12em" }}>
-                    <img className="paper-cutout" src={thinversImg} alt="Samia Menon" style={{ width: "12em", height: "auto", display: "block", zIndex: 1 }} />
+                    <img src={thinversImg} alt="Samia Menon" style={{ width: "calc(12em + 24px)", margin: -12, height: "auto", display: "block", zIndex: 1 }} />
                   </div>
               </div>
 
@@ -310,7 +273,7 @@ export default function Portfolio() {
 
           <div style={{ display: "flex", alignItems: "center", gap: "1rem", margin: "1rem 0 3rem" }}>
           <div style={{ flex: 1, height: "1px", background: `linear-gradient(to right, transparent, ${COLORS.sage}40)` }} />
-          <img className="paper-cutout" src={magImg} alt="sep" style={{ width: 100, height: "auto", opacity: 0.95 }} />
+          <img src={magImg} alt="sep" style={{ width: 124, margin: -12, height: "auto", opacity: 0.95 }} />
           <div style={{ flex: 1, height: "1px", background: `linear-gradient(to left, transparent, ${COLORS.sage}40)` }} />
         </div>
 
@@ -330,14 +293,14 @@ export default function Portfolio() {
               {i === 0 ? (
                 <div style={{ position: "relative" }}>
                   <img
-                    className="paper-cutout"
                     src={viewImg}
                     alt="view"
                     style={{
                       position: "absolute",
                       top: -120,
                       right: 0,
-                      width: 150,
+                      width: 174,
+                      margin: -12,
                       height: "auto",
                       opacity: 0.95,
                       zIndex: 0,
@@ -381,7 +344,7 @@ export default function Portfolio() {
   <footer style={{ marginTop: "2rem", paddingTop: "2rem", borderTop: `1px solid ${COLORS.sage}30`, textAlign: "center" }}>
           <Reveal>
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "0.8rem" }}>
-              <img className="paper-cutout" src={classImg} alt="class" style={{ width: 160, height: "auto", opacity: 0.95 }} />
+              <img src={classImg} alt="class" style={{ width: 184, margin: -12, height: "auto", opacity: 0.95 }} />
               <ImageCredits />
             </div>
           </Reveal>

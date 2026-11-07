@@ -1,6 +1,6 @@
 import React from "react";
 import { COLORS } from "../constants/colors";
-import apuImg from "../assets/apu.png";
+import apuImg from "../assets/paper/apu.webp";
 
 export default function Nav({ activeSection }) {
   const links = ["Home", "Research", "People", "CV"];
@@ -34,7 +34,7 @@ export default function Nav({ activeSection }) {
       `}</style>
       <div className="nav-shell nav-shell-gap" style={{ display: "flex", gap: "2.5rem", alignItems: "center" }}>
         <div className="nav-title-group" style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-          <img className="paper-cutout" src={apuImg} alt="apple" style={{ width: 50, height: "auto" }} />
+          <img src={apuImg} alt="apple" style={{ width: 74, margin: -12, height: "auto" }} />
           <span style={{ fontSize: "1.1rem", color: COLORS.moss, fontWeight: 700 }}>
             samia menon
           </span>

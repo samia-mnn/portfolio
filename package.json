@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview --port 4173"
+    "preview": "vite preview --port 4173",
+    "bake:paper": "node scripts/bake-paper.mjs"
   },
   "dependencies": {
     "react": "18.2.0",

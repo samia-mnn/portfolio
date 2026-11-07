@@ -71,6 +71,7 @@ export default function ProjectCard({ emoji, title, authors, venue, links, descr
             width: "clamp(72px, 15%, 104px)",
             maxWidth: 104,
             aspectRatio: "4 / 3",
+            position: "relative",
             overflow: "hidden",
             border: "none",
             background: `${COLORS.cream}80`,
@@ -82,7 +83,8 @@ export default function ProjectCard({ emoji, title, authors, venue, links, descr
           }}
         >
           {image ? (
-            <img src={image} alt={imageAlt || title} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+            // pinned to the box so it always fills and crops, even where % heights don't resolve (mobile Safari)
+            <img src={image} alt={imageAlt || title} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
           ) : (
             <span style={{ fontSize: "1.3rem" }}>{emoji}</span>
           )}

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { COLORS } from "../constants/colors";
-import apuImg from "../assets/apu.png";
-import bluebirdImg from "../assets/bluebird.webp";
-import classImg from "../assets/class.png";
-import viewImg from "../assets/view.png";
-import doughtyImg from "../assets/doughty.jpeg";
+import apuImg from "../assets/paper/apu.webp";
+import bluebirdImg from "../assets/paper/bluebird.webp";
+import classImg from "../assets/paper/class.webp";
+import viewImg from "../assets/paper/view.webp";
+import doughtyImg from "../assets/paper/doughty-thumb.webp";
 import buttonImg from "../assets/buttons/button.png";
 
 const CREDITS = [
@@ -71,7 +71,7 @@ function CreditsPopup({ onClose }) {
           {CREDITS.map((c) => (
             <li key={c.label} style={{ display: "flex", alignItems: "center", gap: "0.9rem" }}>
               <div style={{ flex: "0 0 3.4rem", height: "3.4rem", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <img className="paper-cutout" src={c.image} alt="" style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain", display: "block" }} />
+                <img src={c.image} alt="" style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain", display: "block" }} />
               </div>
               <div style={{ fontSize: "0.75rem", lineHeight: 1.5 }}>
                 <p style={{ fontWeight: 700, color: COLORS.moss }}>{c.label}</p>

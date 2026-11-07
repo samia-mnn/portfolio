@@ -39,12 +39,11 @@ export default function PeopleBookshelf() {
           }}
         >
           <div
-            className="paper-cutout"
+            className="paper-cover"
             style={{
               width: "5.2rem",
               height: "7rem",
               position: "relative",
-              overflow: "hidden",
               background: COLORS.cream,
             }}
           >
