@@ -24,6 +24,7 @@ import PdfEmbed from "./src/components/PdfEmbed";
 import SidePeek from "./src/components/SidePeek";
 import PeopleBookshelf from "./src/components/PeopleBookshelf";
 import ImageCredits from "./src/components/ImageCredits";
+import ProjectTabs from "./src/components/ProjectTabs";
 
 // a bird perches on every third project card, alternating sides; `faces` is the direction the art faces
 const PROJECT_BIRDS = [
@@ -67,6 +68,11 @@ export default function Portfolio() {
   const [activeSection, setActiveSection] = useState("home");
   const lastScrollRef = useRef(0);
   const [isWide, setIsWide] = useState(typeof window !== "undefined" ? window.innerWidth > 700 : true);
+  const [projectFilter, setProjectFilter] = useState("all");
+  // once someone has used the tabs, cards swap in instantly instead of fading in like on scroll
+  const [hasFiltered, setHasFiltered] = useState(false);
+  // tabs are desktop only, so phones always see every project
+  const visibleProjects = isWide && projectFilter !== "all" ? PROJECTS.filter((p) => p.category === projectFilter) : PROJECTS;
 
   useEffect(() => {
     // Inject global styles into the document head so portals/modal inherit them
@@ -90,6 +96,14 @@ export default function Portfolio() {
         ::-webkit-scrollbar-thumb { background: ${COLORS.sage}; border-radius: 3px; }
         .paper-cutout { filter: url(#paper-cutout); }
 ${PAPER_CSS}
+        .project-tab {
+          --paper-color: #F1E9D8;
+          font-family: inherit; font-size: 0.78rem; color: #888; background: transparent; border: none; cursor: pointer;
+          padding: 0.4rem 0.95rem 1.1rem;
+          transform: translateY(0); transition: transform 0.35s ease, color 0.35s ease;
+        }
+        .project-tab:hover { transform: translateY(-2px); color: ${COLORS.ink}; }
+        .project-tab[aria-pressed="true"] { --paper-color: #FCF9F2; color: ${COLORS.ink}; transform: translateY(-7px); }
         .sewing-button { width: 1.35rem; height: 1.35rem; display: block; filter: drop-shadow(0.5px 1.5px 1.5px rgba(60, 40, 20, 0.35)); transition: transform 0.35s ease; }
         .link-with-button:hover .sewing-button { transform: rotate(25deg); }
         @keyframes credits-fade { from { opacity: 0; } to { opacity: 1; } }
@@ -288,8 +302,10 @@ ${PAPER_CSS}
             </p>
           </Reveal>
 
-          {PROJECTS.map((p, i) => (
-            <Reveal key={i} delay={i * 60}>
+          {isWide ? <ProjectTabs active={projectFilter} onChange={(tab) => { setProjectFilter(tab); setHasFiltered(true); }} /> : null}
+
+          {visibleProjects.map((p, i) => (
+            <Reveal key={p.title} delay={i * 60} immediate={hasFiltered}>
               {i === 0 ? (
                 <div style={{ position: "relative" }}>
                   <img

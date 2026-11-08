@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 
-export default function Reveal({ children, delay = 0 }) {
+// `immediate` skips the fade-in and shows the content straight away
+export default function Reveal({ children, delay = 0, immediate = false }) {
   const ref = useRef();
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(immediate);
   useEffect(() => {
+    if (immediate) return;
     const obs = new IntersectionObserver(([e]) => {
       if (e.isIntersecting) { setVisible(true); obs.disconnect(); }
     }, { threshold: 0.1 });
