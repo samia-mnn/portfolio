@@ -63,7 +63,7 @@ export const PROJECTS = [
     authors: "James Smith, Samia Menon, Jessie Liu, Vivian Chan, Bjoern Hartmann",
     venue: "UIST 2026",
     category: "publications",
-    links: [],
+    links: [{ label: "Paper", href: "https://dl.acm.org/doi/10.1145/3830398.3830684" }],
     image: breakdownImg,
     imageAlt: "Predicting Tool Extension In VR Interactions project preview",
   },
