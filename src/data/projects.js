@@ -12,6 +12,7 @@ import breakdownImg from "../assets/breakdown.gif"
 import froggiImg from "../assets/froggi-demo.gif"
 import modelingImg from "../assets/modeling.png"
 import rembrandtImg from "../assets/rembrandt.png"
+import newsImg from "../assets/news pipeline.gif"
 
 
 
@@ -35,6 +36,16 @@ export const PROJECTS = [
     links: [],
     image: froggiImg,
     imageAlt: "Froggi-Draw interface",
+  },
+   {
+    emoji: "🔨",
+    title: "“Whose Story Does AI Tell? Investigating LLMs as News Agents",
+    authors: "Samia Menon*, Kanav Mittal*, Abigail O'Neill, Serina Chang",
+    venue: "Under Submission",
+    category: "in progress",
+    links: [],
+    image: newsImg,
+    imageAlt: "News pipeline project preview",
   },
    {
     emoji: "🔨",
