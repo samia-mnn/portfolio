@@ -39,8 +39,8 @@ export const PROJECTS = [
   },
    {
     emoji: "🔨",
-    title: "“Whose Story Does AI Tell? Investigating LLMs as News Agents",
-    authors: "Samia Menon*, Kanav Mittal*, Abigail O'Neill, Serina Chang",
+    title: "Whose Story Does AI Tell? Investigating LLMs as News Agents",
+    authors: "Samia Menon*, Kanasv Mittal*, Abigail O'Neill, Serina Chang",
     venue: "Under Submission",
     category: "in progress",
     links: [],
