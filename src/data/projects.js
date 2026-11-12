@@ -30,7 +30,7 @@ export const PROJECTS = [
    {
     emoji: "🔨",
     title: "“We Drew Together”: Designing for Dynamic Agency Negotiation in Human-AI Co-Creation",
-    authors: "Samia Menon, Samyukta Sanjay Jayaram, Jessie Liu,  Shm Almeda, Bjoern Hartmann",
+    authors: "Samia Menon, Samyukta Sanjay Jayaram, Jessie Liu,  Shm Almeda, Jingyi Li, Bjoern Hartmann",
     venue: "Under Submission",
     category: "in progress",
     links: [],
