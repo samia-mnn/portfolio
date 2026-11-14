@@ -1,6 +1,9 @@
 import React, { useEffect, useRef } from "react";
 import fingerImg from "../assets/finger.png";
 
+// where the fingertip sits in finger.png, as a fraction of its width and height
+const HOTSPOT = { x: 0.11, y: 0.255 };
+
 export default function CursorFinger({ src = fingerImg, size = 48 }) {
   const ref = useRef({ x: 0, y: 0, raf: null });
   const elRef = useRef(null);
@@ -15,7 +18,7 @@ export default function CursorFinger({ src = fingerImg, size = 48 }) {
         state.raf = requestAnimationFrame(() => {
           state.raf = null;
           if (elRef.current) {
-            elRef.current.style.transform = `translate(${state.x - size / 2}px, ${state.y - size / 2}px)`;
+            elRef.current.style.transform = `translate(${state.x - size * HOTSPOT.x}px, ${state.y - size * HOTSPOT.y}px)`;
           }
         });
       }
@@ -48,7 +51,7 @@ export default function CursorFinger({ src = fingerImg, size = 48 }) {
   }, []);
 
   return (
-    <div ref={elRef} style={{ position: "fixed", left: 0, top: 0, width: size, height: size, pointerEvents: "none", zIndex: 9999, transition: "transform 90ms linear" }}>
+    <div ref={elRef} style={{ position: "fixed", left: 0, top: 0, width: size, height: size, pointerEvents: "none", zIndex: 2147483647, transition: "transform 90ms linear" }}>
       <img src={src} alt="cursor" style={{ width: "100%", height: "100%", display: "block", userSelect: "none", transformOrigin: "center" }} />
     </div>
   );

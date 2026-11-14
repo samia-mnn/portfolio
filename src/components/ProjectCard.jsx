@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { COLORS } from "../constants/colors";
 import MoreInfoModal from "./MoreInfoModal";
+import PaperPopup from "./PaperPopup";
 import buttonImg from "../assets/buttons/button.png";
 import button2Img from "../assets/buttons/button 2.png";
 import button3Img from "../assets/buttons/button 3.png";
@@ -46,10 +47,14 @@ function renderHighlightedText(text) {
   return parts.length > 0 ? parts : text;
 }
 
-export default function ProjectCard({ emoji, title, authors, venue, links, description, moreInfo, image, imageAlt }) {
+export default function ProjectCard({ emoji, title, authors, venue, links = [], description, moreInfo, abstract, image, imageAlt }) {
   const [hovered, setHovered] = useState(false);
   const [moreOpen, setMoreOpen] = useState(false);
   const [moreData, setMoreData] = useState(null);
+  const [abstractOpen, setAbstractOpen] = useState(false);
+  const closeAbstract = useCallback(() => setAbstractOpen(false), []);
+  // projects with an abstract get a "working abstract" link after their other links
+  const allLinks = abstract ? [...links, { label: "Working Abstract", abstract: true }] : links;
 
   return (
     <div
@@ -95,13 +100,13 @@ export default function ProjectCard({ emoji, title, authors, venue, links, descr
           </p>
           <p style={{ margin: "0.3rem 0 0.2rem", fontSize: "0.82rem", color: "#888", fontStyle: "italic" }}>{renderHighlightedText(authors)}</p>
           <p style={{ margin: "0 0 0.5rem", fontSize: "0.82rem", fontWeight: 600, color: COLORS.moss }}>{renderHighlightedText(venue)}</p>
-          {links && (
+          {allLinks.length > 0 && (
             <div style={{ display: "flex", gap: "0.7rem", flexWrap: "wrap" }}>
-              {links.map((l, i) => (
+              {allLinks.map((l, i) => (
                 <span key={i} className="link-with-button" style={{ display: "inline-flex", alignItems: "center", gap: "0.3rem" }}>
                 <img className="sewing-button" src={SEWING_BUTTONS[i % SEWING_BUTTONS.length]} alt="" aria-hidden="true" />
-                {l.modal ? (
-                  <button onClick={() => { setMoreData(moreInfo || null); setMoreOpen(true); }} style={{
+                {l.modal || l.abstract ? (
+                  <button onClick={() => { if (l.abstract) { setAbstractOpen(true); } else { setMoreData(moreInfo || null); setMoreOpen(true); } }} style={{
                     fontSize: "0.8rem", fontFamily: "inherit", color: COLORS.terracotta,
                     background: "transparent", border: "none", padding: 0, cursor: "pointer",
                     textDecoration: "underline", textUnderlineOffset: "0.15em",
@@ -121,6 +126,12 @@ export default function ProjectCard({ emoji, title, authors, venue, links, descr
             </div>
           )}
           {moreOpen && <MoreInfoModal open={moreOpen} onClose={() => setMoreOpen(false)} data={moreData || null} />}
+          {abstractOpen && (
+            <PaperPopup title="working abstract" onClose={closeAbstract} maxWidth="34rem">
+              <p style={{ fontSize: "0.85rem", fontWeight: 600, color: COLORS.moss, lineHeight: 1.4, marginBottom: "0.8rem" }}>{title}</p>
+              <p style={{ fontSize: "0.82rem", color: "#555", lineHeight: 1.75 }}>{abstract}</p>
+            </PaperPopup>
+          )}
         </div>
       </div>
     </div>

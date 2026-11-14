@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { createPortal } from "react-dom";
+import React, { useState } from "react";
 import { COLORS } from "../constants/colors";
+import PaperPopup from "./PaperPopup";
 import apuImg from "../assets/paper/apu.webp";
 import bluebirdImg from "../assets/paper/bluebird.webp";
 import classImg from "../assets/paper/class.webp";
@@ -17,56 +17,8 @@ const CREDITS = [
 ];
 
 function CreditsPopup({ onClose }) {
-  useEffect(() => {
-    const onKey = (e) => { if (e.key === "Escape") onClose(); };
-    window.addEventListener("keydown", onKey);
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => {
-      window.removeEventListener("keydown", onKey);
-      document.body.style.overflow = prev;
-    };
-  }, [onClose]);
-
-  return createPortal(
-    <div
-      role="dialog"
-      aria-modal
-      aria-label="Image credits"
-      onClick={onClose}
-      style={{
-        position: "fixed",
-        inset: 0,
-        background: "rgba(42, 42, 36, 0.35)",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: "1rem",
-        zIndex: 2147483000,
-        animation: "credits-fade 220ms ease",
-      }}
-    >
-      <div
-        className="paper-sheet"
-        onClick={(e) => e.stopPropagation()}
-        style={{
-          width: "100%",
-          maxWidth: "26rem",
-          fontFamily: "Averia Serif Libre, Georgia, serif",
-          color: COLORS.ink,
-          animation: "credits-pop 260ms ease",
-        }}
-      >
-        {/* scroll inside the sheet so the paper edge isn't clipped */}
-        <div style={{ position: "relative", maxHeight: "80vh", overflowY: "auto", padding: "1.4rem 1.4rem 1.2rem" }}>
-        <button
-          onClick={onClose}
-          aria-label="Close"
-          style={{ position: "absolute", top: "0.6rem", right: "0.8rem", background: "transparent", border: "none", fontSize: "1rem", color: "#888", cursor: "pointer" }}
-        >
-          ✕
-        </button>
-        <h3 style={{ margin: "0 0 1rem", fontSize: "1.1rem", fontWeight: 600 }}>image credits</h3>
+  return (
+    <PaperPopup title="image credits" onClose={onClose}>
         <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "0.9rem" }}>
           {CREDITS.map((c) => (
             <li key={c.label} style={{ display: "flex", alignItems: "center", gap: "0.9rem" }}>
@@ -83,10 +35,7 @@ function CreditsPopup({ onClose }) {
             </li>
           ))}
         </ul>
-        </div>
-      </div>
-    </div>,
-    document.body
+    </PaperPopup>
   );
 }
 
