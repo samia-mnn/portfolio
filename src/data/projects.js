@@ -17,17 +17,7 @@ import newsImg from "../assets/news pipeline.gif"
 
 
 export const PROJECTS = [
-   {
-    emoji: "🔨",
-    title: "Whose Story Does AI Tell? Investigating LLMs as News Agents",
-    authors: "Samia Menon*, Kanav Mittal*, Abigail O'Neill, Serina Chang",
-    venue: "Under Submission",
-    category: "in progress",
-    links: [],
-    abstract: "As users increasingly turn to large language models (LLMs) to learn about current events, LLMs are emerging as news agents that mediate exposure to news. We study this pipeline in three stages — user query, article retrieval, and response synthesis — and ask how each stage shapes what users ultimately see. To enable consistent analysis across stages, we adopt frames from political communication as our unit of analysis. We design a benchmark of 26 major U.S. events from 2025 to 2026, paired with 5k real news articles spanning a diverse range of sources; identify 4-5 dominant frames per event; and construct neutral and frame-aligned user queries. Across multiple frontier LLMs, we find that, even under neutral queries, both retrieval and synthesis steps significantly shift frame distributions relative to their inputs. The salience of frames that are i) descriptive, rather than evaluative, and ii) more prevalent among liberal outlets tends to increase more than others. Frame-aligned queries result in increased salience of the targeted frame across both stages. Our results show that LLM news agents are not neutral conduits, but active shapers of news exposure.",
-    image: newsImg,
-    imageAlt: "News pipeline project preview",
-  },
+
   {
     emoji: "🔨",
     title: "“We Drew Together”: Designing for Dynamic Agency Negotiation in Human-AI Co-Creation",
@@ -60,6 +50,17 @@ export const PROJECTS = [
     abstract: "Modern social media platforms pose critical challenges for modeling information spread. While prior work often examines the diffusion of textual content through structured social networks, reflecting the affordances of older platforms, many contemporary platforms privilege visual content delivered through algorithmically-mediated recommendation systems. To model information spread under these new paradigms, we describe the visual trait, an atomic component that can either be symbolic or stylistic, as the fundamental unit of transmission. We then define aesthetic populations, groups of users who employ a shared set of associated visual traits. Using these definitions, we draw on foundational work in diffusion theory to computationally analyze the diffusion of visual traits within aesthetic communities on TikTok. We find that visual trait adoption curves are largely consistent with the logistic model of biased cultural transmission (BCT), and, by extension, patterns associated with social learning. We demonstrate this consistency by first proposing and evaluating a computational method using state-of-the-art vision models for extracting visual traits encompassed by an aesthetic. We then analyze image data sampled from 86,022 public TikTok videos to determine trait adoption curves. Our analysis shows that certain traits diffuse with significantly greater intrinsic growth rates than others, raising the possibility of stronger sociostructural influences promoting their adoption. These contributions provide a versatile approach for computing units of visual culture and present a practical step towards understanding information spread on algorithmic video platforms.",
     image: modelingImg,
     imageAlt: "TikTok preview",
+  },
+     {
+    emoji: "🔨",
+    title: "Whose Story Does AI Tell? Investigating LLMs as News Agents",
+    authors: "Samia Menon*, Kanav Mittal*, Abigail O'Neill, Serina Chang",
+    venue: "Under Submission",
+    category: "in progress",
+    links: [],
+    abstract: "As users increasingly turn to large language models (LLMs) to learn about current events, LLMs are emerging as news agents that mediate exposure to news. We study this pipeline in three stages — user query, article retrieval, and response synthesis — and ask how each stage shapes what users ultimately see. To enable consistent analysis across stages, we adopt frames from political communication as our unit of analysis. We design a benchmark of 26 major U.S. events from 2025 to 2026, paired with 5k real news articles spanning a diverse range of sources; identify 4-5 dominant frames per event; and construct neutral and frame-aligned user queries. Across multiple frontier LLMs, we find that, even under neutral queries, both retrieval and synthesis steps significantly shift frame distributions relative to their inputs. The salience of frames that are i) descriptive, rather than evaluative, and ii) more prevalent among liberal outlets tends to increase more than others. Frame-aligned queries result in increased salience of the targeted frame across both stages. Our results show that LLM news agents are not neutral conduits, but active shapers of news exposure.",
+    image: newsImg,
+    imageAlt: "News pipeline project preview",
   },
     {
     emoji: "🔨",
