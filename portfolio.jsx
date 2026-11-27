@@ -270,7 +270,8 @@ ${PAPER_CSS}
                 
                 <p style={{ fontSize: "0.7rem", color: "#888", lineHeight: 1.7 }}>
                   Previously I was SWE at <strong>Squarespace</strong> and worked in the <a href="https://www.cs.columbia.edu/~chilton/" style={{ color: COLORS.moss, textDecoration: "none", fontWeight: 600 }}>Computational Design Lab at Columbia</a> under Prof. Lydia Chilton.
-                  I also enjoy ecology, <a href="https://samia-sketchbook.vercel.app" style={{ color: COLORS.terracotta, textDecoration: "none" }}>illustration</a>, archaeology  & data visualization !
+                  I also enjoy ecology, {/* the sketchbook site is desktop only, so phones get plain text */}
+                  {isWide ? <a href="https://samia-sketchbook.vercel.app" style={{ color: COLORS.terracotta, textDecoration: "none" }}>illustration</a> : "illustration"}, archaeology  & data visualization !
                 </p>
               </div>
             </div>
